@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
             $table->string('author');
-            $table->integer('word_count');
-            $table->integer('popularity')->default(0);
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->text('quote');
+            $table->integer('vue')->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quotes');
+        //
     }
 };
